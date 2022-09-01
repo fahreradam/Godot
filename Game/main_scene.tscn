@@ -45,7 +45,7 @@ transform = Transform( 0.41247, 0, 0, 0, 0.41247, 0, 0, 0, 0.41247, 0.981779, 0.
 transform = Transform( -0.079326, 0, -0.12662, 0, 0.096026, 0, 0.0541145, 0, -0.185611, 4.32392, 0.807041, 4.53843 )
 
 [node name="Spawner" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.34177, 0.696072, -0.561519 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.342, 0.203958, -0.562 )
 
 [editable path="bouncer"]
 [editable path="bouncer2"]
