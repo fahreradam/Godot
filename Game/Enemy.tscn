@@ -11,7 +11,10 @@ albedo_color = Color( 0.894118, 0.0627451, 0.0627451, 1 )
 
 [node name="Enemy" type="KinematicBody"]
 transform = Transform( 0.117607, 0, 0, 0, -5.14076e-09, -0.117607, 0, 0.117607, -5.14076e-09, 0, 0.175756, 0 )
+collision_layer = 4
+collision_mask = 7
 script = ExtResource( 1 )
+speed = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

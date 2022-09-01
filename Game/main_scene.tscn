@@ -1,14 +1,18 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://bouncer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://obstacle.tscn" type="PackedScene" id=3]
-[ext_resource path="res://bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Ui.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Spawner.tscn" type="PackedScene" id=5]
+[ext_resource path="res://main_ui.gd" type="Script" id=6]
+[ext_resource path="res://health_bar.tscn" type="PackedScene" id=7]
+[ext_resource path="res://temp_spawner.gd" type="Script" id=8]
 
 [node name="world_root" type="Spatial"]
 
 [node name="ground" parent="." instance=ExtResource( 3 )]
+transform = Transform( 43.9112, 0, 0, 0, 0.178, 0, 0, 0, 43.9112, 0, -0.178, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.76428, 0 )
@@ -32,20 +36,23 @@ transform = Transform( 0.481918, 0, 0, 0, 0.481918, 0, 0, 0, 0.481918, 0, 0, 0 )
 [node name="bouncer_mesh" parent="bouncer2" index="1"]
 transform = Transform( 0.481918, 0, 0, 0, 0.481918, 0, 0, 0, 0.481918, 0, 0, 0 )
 
-[node name="ground2" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.193872, 0, 0, 0, 0.511019, 0, 0, 0, 3.00184, -2.60619, 0.266651, 0 )
-
-[node name="ground3" parent="." instance=ExtResource( 3 )]
-transform = Transform( 0.192165, 0, 0, 0, 0.506518, 0, 0, 0, 2.92, 2.64786, 0.275405, -0.00763479 )
-
 [node name="player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 0.41247, 0, 0, 0, 0.41247, 0, 0, 0, 0.41247, 0.981779, 0.756616, 0 )
 
-[node name="bullet" parent="." instance=ExtResource( 4 )]
-transform = Transform( -0.079326, 0, -0.12662, 0, 0.096026, 0, 0.0541145, 0, -0.185611, 4.32392, 0.807041, 4.53843 )
-
 [node name="Spawner" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.342, 0.203958, -0.562 )
+transform = Transform( 0.735246, 0, -0.6778, 0, 0.357141, 0, 0.6778, 0, 0.735246, -11.9712, 1.73096, 12.3487 )
+spawn_dist = 4
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
+script = ExtResource( 6 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+script = ExtResource( 8 )
+
+[node name="health_bar" parent="MeshInstance" instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15642, 1.68916, 0 )
+
+[connection signal="change_ui_score" from="player" to="CanvasLayer" method="_on_player_change_ui_score"]
 
 [editable path="bouncer"]
 [editable path="bouncer2"]

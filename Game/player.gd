@@ -1,10 +1,12 @@
 extends KinematicBody
 
+signal change_ui_score(new_total)
 
 # Declare member variables here. Examples:
 
 export var speed = 11.5
 var health = 100
+var points = 0
 
 var color_change_delay = 3.0
 var time_to_color_change = color_change_delay
@@ -35,14 +37,20 @@ func _process(delta):
 	
 		# rotate / translate the new instance
 		new_inst.transform.origin = transform.origin
+		new_inst.transform.origin.y = 1
 		new_inst.rotation_degrees = Vector3(0,90,0)
 		
 		# connect the bullet's "bullet_destroyed" signal to our my_bullet_dead method
 		new_inst.connect("bullet_killed", self, "my_bullet_is_dead")
 		
-func my_bullet_is_dead(points):
+func my_bullet_is_dead(new_points):
 	print("My bullet just hit something")
-		
+	
+	points += new_points
+	
+	# Change the UI
+	emit_signal("change_ui_score", points)
+	
 func do_color_change(delta):
 	time_to_color_change -= delta
 	if time_to_color_change <= 0:
