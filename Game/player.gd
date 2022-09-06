@@ -76,7 +76,7 @@ func do_movement():
 	velocity = velocity.normalized()
 	
 	# Move this object and correctly hit obsticles
-	move_and_slide(velocity * speed, Vector3.UP)
+	move_and_slide(velocity * speed, Vector3.FORWARD)
 
 func _input(event):
 	if event is InputEventMouseMotion:
