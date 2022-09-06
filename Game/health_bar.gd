@@ -13,7 +13,7 @@ func _ready():
 
 func set_percentage(value):
 	if value < 0:
-		valie = 0
+		value = 0
 	if value > 100:
 		value = 100
 	$Viewport/TextureProgress.value = value
