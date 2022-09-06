@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Spawner.gd" type="Script" id=1]
 [ext_resource path="res://textures/gradient_blinds.png" type="Texture" id=2]
@@ -12,6 +12,13 @@ shader_param/time_scaler = 0.1
 shader_param/y_scaler = 0.1
 shader_param/gradient_img = ExtResource( 2 )
 
+[sub_resource type="ParticlesMaterial" id=5]
+
+[sub_resource type="ParticlesMaterial" id=6]
+next_pass = SubResource( 5 )
+
+[sub_resource type="SphereMesh" id=7]
+
 [node name="Spawner" type="Spatial"]
 transform = Transform( 0.35689, 0, 0, 0, 0.0767624, 0, 0, 0, 0.35689, 0, 0, 0 )
 script = ExtResource( 1 )
@@ -20,3 +27,7 @@ script = ExtResource( 1 )
 transform = Transform( 0.824215, 0, 0, 0, 4.82343, 0, 0, 0, 0.185273, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 3 )
+
+[node name="CPUParticles" type="Particles" parent="."]
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )

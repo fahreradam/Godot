@@ -13,11 +13,6 @@ var time_to_color_change = color_change_delay
 
 var bullet_scene = preload("res://bullet.tscn")
 
-var direction_map = {"move_left": Vector3(0,0,-1),
-					 "move_right": Vector3(0,0,1),
-					 "move_up": Vector3(1,0,0),
-					 "move_down": Vector3(-1,0,0)}
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("hello world")
@@ -67,6 +62,10 @@ func do_color_change(delta):
 	
 func do_movement():
 	var velocity = Vector3.ZERO
+	var direction_map = {"move_left": Vector3(0,0,-1),
+					 "move_right": Vector3(0,0,1),
+					 "move_up": Vector3(1,0,0),
+					 "move_down": Vector3(-1,0,0)}
 	# Look through all the keys in our direction
 	# map and see if that action is pressed atm
 	for action in direction_map:
@@ -78,3 +77,8 @@ func do_movement():
 	
 	# Move this object and correctly hit obsticles
 	move_and_slide(velocity * speed, Vector3.UP)
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		var delta = -event.relative.x
+		rotate(Vector3.UP, delta * 0.005)

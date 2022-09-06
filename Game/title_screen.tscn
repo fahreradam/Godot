@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://main_menu.gd" type="Script" id=1]
+[ext_resource path="res://textures/rainbow_splash.png" type="Texture" id=2]
+[ext_resource path="res://fonts/Koulen-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 29
+font_data = ExtResource( 3 )
+
+[node name="main_menu" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+
+[node name="new_game" type="RichTextLabel" parent="."]
+margin_left = 396.0
+margin_top = 348.0
+margin_right = 518.0
+margin_bottom = 405.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "New Game"
+
+[connection signal="gui_input" from="new_game" to="." method="_on_new_game_gui_input"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/twoTone2.ogg-ae1f1d25b9b348ca7148b3d10cbd6a2d.oggstr"
+
+[deps]
+
+source_file="res://audio/kenney_digitalaudio/Audio/twoTone2.ogg"
+dest_files=[ "res://.import/twoTone2.ogg-ae1f1d25b9b348ca7148b3d10cbd6a2d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -22,4 +22,4 @@ mesh = SubResource( 2 )
 material/0 = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 3.17924e-07, 2.42442, -1.05975e-07, 9.2646e-15, 1.05975e-07, 2.42442, 2.42442, -3.17924e-07, 4.6323e-15, 0, 15.569, 0 )
+transform = Transform( 1.38875e-07, 1.05903, -2.18089, 2.85988e-07, 2.18089, 1.05903, 2.42442, -3.17924e-07, 1.72265e-14, -5.02046, 4.02847, 0 )

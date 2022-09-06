@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/highDown.ogg-5ae91ee62005f3c956213c3a44e9b0db.oggstr"
+
+[deps]
+
+source_file="res://audio/kenney_digitalaudio/Audio/highDown.ogg"
+dest_files=[ "res://.import/highDown.ogg-5ae91ee62005f3c956213c3a44e9b0db.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

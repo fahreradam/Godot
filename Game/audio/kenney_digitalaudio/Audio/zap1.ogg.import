@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/zap1.ogg-d076fb70a3840c305fdcfd50b0d21750.oggstr"
+
+[deps]
+
+source_file="res://audio/kenney_digitalaudio/Audio/zap1.ogg"
+dest_files=[ "res://.import/zap1.ogg-d076fb70a3840c305fdcfd50b0d21750.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
