@@ -1,6 +1,7 @@
 extends Area
 
 signal bullet_killed(points)
+signal bullet_hit()
 
 
 export var speed = 20.0

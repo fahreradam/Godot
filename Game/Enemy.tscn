@@ -23,7 +23,3 @@ mesh = ExtResource( 3 )
 
 [node name="health_bar" parent="MeshInstance" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 1.06581e-14, 0, -1.06581e-14, 1, 0, -9.76138e-08, -2.23315 )
-
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
