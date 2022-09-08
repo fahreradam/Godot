@@ -23,8 +23,8 @@ func _process(delta):
 	self.look_at(player_pos, Vector3.UP)
 	move_and_slide(direction*speed)
 	
-func was_hit():
-	emit_signal(bullet)
+#func was_hit():
+#	emit_signal(bullet)
 	
 #func _on_Timer_timeout():
 #	print("changing eyeball color")

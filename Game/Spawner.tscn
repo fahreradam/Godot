@@ -16,6 +16,7 @@ shader_param/gradient_img = ExtResource( 2 )
 
 [sub_resource type="ParticlesMaterial" id=6]
 next_pass = SubResource( 5 )
+angular_velocity = 1.0
 
 [sub_resource type="SphereMesh" id=7]
 
@@ -29,5 +30,6 @@ mesh = SubResource( 4 )
 material/0 = SubResource( 3 )
 
 [node name="CPUParticles" type="Particles" parent="."]
+amount = 16
 process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 7 )

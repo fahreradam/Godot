@@ -4,7 +4,7 @@ signal bullet_killed(points)
 signal bullet_hit()
 
 
-export var speed = 20.0
+export var speed = 80.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Spatial
 
 
 # Declare member variables here. Examples:
@@ -12,10 +12,9 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
-
-
-func _on_new_game_gui_input(event):
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
-		get_tree().change_scene("res://main_scene.tscn")
+func _process(delta):
+	if Input.is_action_just_pressed("pause"):
+		get_tree().paused = true
+		print("here")
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		
