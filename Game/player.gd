@@ -23,6 +23,12 @@ func _process(delta):
 	do_color_change(delta)
 	
 
+func current_health():
+	$Viewport/TextureProgress.value = health
+	if health < 0:
+		get_tree().quit()
+	
+
 		
 func my_bullet_is_dead(new_points):
 	print("My bullet just hit something")

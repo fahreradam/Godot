@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
+[ext_resource path="res://health_bar.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CapsuleShape" id=4]
 
@@ -25,3 +26,8 @@ material/0 = SubResource( 3 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1.67644e-07, 1.27842, -2.63268, 3.45233e-07, 2.63268, 1.27842, 2.92666, -3.83785e-07, 8.31808e-14, -7.58266, 5.345, 0 )
+
+[node name="health_bar" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.26407, 0 )
+
+[editable path="health_bar"]

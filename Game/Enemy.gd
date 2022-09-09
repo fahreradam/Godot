@@ -21,7 +21,7 @@ func _process(delta):
 	direction = (player_pos-self.global_transform.origin).normalized()
 	self.look_at(player_pos, Vector3.UP)
 	if move_and_collide(direction*speed*delta):
-		print("yes")
+		player.health -= 10*delta
 
 	
 
