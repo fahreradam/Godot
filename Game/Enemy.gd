@@ -22,7 +22,7 @@ func _process(delta):
 	self.look_at(player_pos, Vector3.UP)
 	if move_and_collide(direction*speed*delta):
 		print("yes")
-	transform.origin.y = 0.5
+
 	
 
 	

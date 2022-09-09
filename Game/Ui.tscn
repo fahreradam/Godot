@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Score_Value.gd" type="Script" id=1]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -14,3 +16,4 @@ margin_right = 175.0
 margin_bottom = 35.0
 bbcode_text = "0"
 text = "0"
+script = ExtResource( 1 )
