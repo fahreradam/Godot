@@ -1,7 +1,7 @@
 extends Area
 
 signal bullet_killed(points)
-signal bullet_hit()
+
 
 
 export var speed = 80.0
@@ -17,5 +17,6 @@ func _process(delta):
 
 func hit_something(body):
 	print("I hit", body)
+	body.queue_free()
 	emit_signal("bullet_killed", 100)
 	queue_free()
