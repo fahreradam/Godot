@@ -1,0 +1,44 @@
+To Do List
+	Title
+		Add music
+	Player
+		Add better mesh
+		Add health that is affected by enemies
+		Aware points for shooting enemies
+	Enemy
+		Add health that will be reduced by a shot from the bullet
+		Free self when health is less than 0
+		Award points to player when freed
+		Add wandering mechanic
+		Add death particles
+		change eye color to red when detecting player
+	Spawner
+		finsih particles for spawner (watch past lectures)
+	Bullet
+		Add shooting sound (pew pew)
+		Tell enemy to reduce health when shot
+	Level
+		Add ambient music
+		When all enemies are dead spawn a portal to walk through to take to next level
+			#insert woosh noise
+		transfer over heath and points before scene change
+		make sure all uneeded assets aren't being used
+	Win Screen
+		when all enemies are killed on both levels, display win screen showing points
+		Have a quit option
+	Lose Screen
+		If the player dies before killing all enemies, display lose screen showing points
+		Have quit option
+		Have retry option
+		
+Optional
+	Powerups
+		Make bullet into shotgun
+		Health drops
+		
+	Title
+		Add wave option
+		
+		
+	
+		

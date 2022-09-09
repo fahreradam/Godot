@@ -17,12 +17,12 @@ onready var player = get_tree().get_nodes_in_group("Player")[0]
 func _process(delta):
 	
 	
-	
 	var player_pos = player.global_transform.origin
 	direction = (player_pos-self.global_transform.origin).normalized()
 	self.look_at(player_pos, Vector3.UP)
 	if move_and_collide(direction*speed*delta):
 		print("yes")
+	transform.origin.y = 0.5
 	
 
 	

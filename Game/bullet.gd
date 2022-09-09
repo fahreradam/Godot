@@ -17,6 +17,8 @@ func _process(delta):
 
 func hit_something(body):
 	print("I hit", body)
-	body.queue_free()
+
+	if body == $Enemy:
+		body.queue()
 	emit_signal("bullet_killed", 100)
 	queue_free()
