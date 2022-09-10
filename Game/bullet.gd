@@ -17,12 +17,12 @@ func _process(delta):
 
 func hit_something(body):
 	print("I hit", body)
-	
 	for e in get_tree().get_nodes_in_group("Enemys"):
 		if body == e:
-			emit_signal("bullet_killed", 100)
-			body.queue_free()
+			e.health -= 50
 #	if body == get_tree().get_nodes_in_group("Enemys")[0]:
 #		body.queue()
 
 	queue_free()
+	
+

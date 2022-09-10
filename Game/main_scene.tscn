@@ -16,7 +16,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.76
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.41247, 0, 0, 0, 0.41247, 0, 0, 0, 0.41247, 0, 0.412, 0 )
+transform = Transform( 0.41247, 0, 0, 0, 0.41247, 0, 0, 0, 0.41247, 0, 0.611658, 0 )
 
 [node name="CanvasLayer" parent="." instance=ExtResource( 4 )]
 script = ExtResource( 6 )

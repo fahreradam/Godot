@@ -2,21 +2,21 @@ To Do List
 	Title
 		Add music
 	Player
-		Add better mesh
-		Add health that is affected by enemies
-		Aware points for shooting enemies
+		-Add better mesh
+		-Add health that is affected by enemies
+		Award points for shooting enemies
 	Enemy
-		Add health that will be reduced by a shot from the bullet
-		Free self when health is less than 0
-		Award points to player when freed
+		-Add health that will be reduced by a shot from the bullet
+		-Free self when health is less than 0
 		Add wandering mechanic
 		Add death particles
 		change eye color to red when detecting player
+		Lock Enemy to players y
 	Spawner
 		finsih particles for spawner (watch past lectures)
 	Bullet
 		Add shooting sound (pew pew)
-		Tell enemy to reduce health when shot
+		-Tell enemy to reduce health when shot
 	Level
 		Add ambient music
 		When all enemies are dead spawn a portal to walk through to take to next level
