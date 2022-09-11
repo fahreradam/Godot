@@ -9,7 +9,7 @@
 [node name="Enemy" type="KinematicBody" groups=["Enemys"]]
 transform = Transform( 0.362901, -0.000494891, 0.000325304, 0.000437909, 0.358433, 0.0567703, -0.000398717, -0.0567698, 0.358433, 0, 0.363, 0 )
 collision_layer = 4
-collision_mask = 7
+collision_mask = 23
 script = ExtResource( 1 )
 speed = 2
 

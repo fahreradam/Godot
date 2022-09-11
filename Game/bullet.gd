@@ -20,9 +20,6 @@ func hit_something(body):
 	for e in get_tree().get_nodes_in_group("Enemys"):
 		if body == e:
 			e.health -= 50
-#	if body == get_tree().get_nodes_in_group("Enemys")[0]:
-#		body.queue()
-
 	queue_free()
 	
 
