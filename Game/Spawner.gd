@@ -28,8 +28,6 @@ func _process(delta):
 			enemy.transform.origin = offset
 			var root = get_parent()
 			root = add_child(enemy)
-			enemy.transform.origin.y = -3
-			enemy.move_lock_y = true
 			num_enemy -= 1
 			spawn_num += 1
 		spawntimer = spawntimer + spawn_delay
