@@ -52,7 +52,6 @@ func wander(delta):
 	if time <= 0:
 		end = Vector3(rand_range(-43, 43), rand_range(0, 1), rand_range(-43,43))
 		direction = (end - self.transform.origin).normalized()
-		print(end)
 		time = 5 + time
 		self.look_at(end, Vector3.UP)
 
