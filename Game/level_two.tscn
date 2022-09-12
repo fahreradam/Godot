@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obstacle.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://wining.gd" type="Script" id=11]
 [ext_resource path="res://audio/crowd_small_chil_ec049202_9klCwI6.mp3" type="AudioStream" id=12]
 [ext_resource path="res://audio/sadtrombone.swf.mp3" type="AudioStream" id=13]
+[ext_resource path="res://audio/guitar-electro-sport-trailer-115571.mp3" type="AudioStream" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 29
@@ -53,19 +54,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
 [node name="Spawner" parent="Spawners" instance=ExtResource( 4 )]
 transform = Transform( -0.810757, 0, -0.585382, 0, 0.357141, 0, 0.585382, 0, -0.810757, -35.079, 1.73096, -34.9009 )
 spawn_delay = 1.644
-num_enemy = 8
+num_enemy = 10
 max_enemy = 100
 
 [node name="Spawner2" parent="Spawners" instance=ExtResource( 4 )]
 transform = Transform( 0.037167, 0, -0.999309, 0, 0.357141, 0, 0.999309, 0, 0.037167, -29.5955, 1.73096, -0.713284 )
 spawn_delay = 1.644
-num_enemy = 8
+num_enemy = 10
 max_enemy = 100
 
 [node name="Spawner3" parent="Spawners" instance=ExtResource( 4 )]
 transform = Transform( 0.72849, 0, -0.685055, 0, 0.357141, 0, 0.685055, 0, 0.72849, -35.8901, 1.73096, 34.6406 )
 spawn_delay = 1.644
-num_enemy = 8
+num_enemy = 10
 max_enemy = 100
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -137,10 +138,16 @@ text = "New Game"
 [node name="lose_sound" type="AudioStreamPlayer" parent="lose_screen"]
 stream = ExtResource( 13 )
 
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -16.0
+
 [connection signal="paused" from="." to="pause" method="_on_wolrd_root_paused"]
 [connection signal="change_ui_score" from="player" to="hud" method="_on_player_change_ui_score"]
 [connection signal="win" from="hud" to="win_screen" method="_on_hud_win"]
+[connection signal="visibility_changed" from="win_screen" to="." method="_on_win_screen_visibility_changed"]
 [connection signal="gui_input" from="win_screen/quit" to="win_screen" method="_on_quit_gui_input"]
+[connection signal="visibility_changed" from="lose_screen" to="." method="_on_lose_screen_visibility_changed"]
 [connection signal="gui_input" from="lose_screen/quit" to="lose_screen" method="_on_quit_gui_input"]
 [connection signal="gui_input" from="lose_screen/new_game" to="lose_screen" method="_on_new_game_gui_input"]
 

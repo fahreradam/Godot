@@ -24,23 +24,32 @@ func _process(delta):
 #	do_color_change(delta)
 	current_health(delta)
 	do_movement()
-	
+	controller_rotate(delta)
 	
 	
 	time -= delta
 	if time <= 0: 
 		$gun_sound.stop()
+		
+		
+	
+		
+func controller_rotate(delta):		
+	if Input.is_action_pressed("turn_left"):
+		rotate(Vector3.UP, delta* 2.5)
+	if Input.is_action_pressed("turn_right"):
+		rotate(Vector3.UP, -delta* 2.5)
 	
 	
 
 func current_health(delta):
 	var prev_health = $health_bar.get_percentage()
 	$health_bar.set_percentage(health)
-
-	if prev_health > health:
-		$player_mesh.get_active_material(0).albedo_color = Color(1,0,0)
-	else:
-		$player_mesh.get_active_material(0).albedo_color = Color(0,0,1)
+#
+#	if prev_health > health:
+#		$player_mesh.get_active_material(0).albedo_color = Color(1,0,0)
+#	else:
+#		$player_mesh.get_active_material(0).albedo_color = Color(0,0,1)
 
 	
 	
@@ -74,11 +83,10 @@ func do_movement():
 	move_and_slide(velocity * speed, Vector3.UP)
 
 func _input(event):
-	
-
 	if event is InputEventMouseMotion:
 		var delta = -event.relative.x
 		rotate(Vector3.UP, delta * 0.005)
+		
 	if Input.is_action_just_pressed("fire"):
 		# Make a new (disconnected scene instance
 		var new_inst = bullet_scene.instance()

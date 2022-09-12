@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/guitar-electro-sport-trailer-115571.mp3-32f245e4d5afe0e26d19235cc73d8761.mp3str"
+
+[deps]
+
+source_file="res://audio/guitar-electro-sport-trailer-115571.mp3"
+dest_files=[ "res://.import/guitar-electro-sport-trailer-115571.mp3-32f245e4d5afe0e26d19235cc73d8761.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+
+
+var time = 3.63
 # Called when the node enters the scene tree for the first time.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -10,6 +13,10 @@ func _process(delta):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if prev_visible != visible:
 		$lose_sound.play()
+	if time <= 0:
+		$lose_sound.stop()
+	if $lose_sound.playing == true:
+		time -= delta
 func _on_quit_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		get_tree().quit()

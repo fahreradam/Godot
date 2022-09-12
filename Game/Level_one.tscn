@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://portal.gd" type="Script" id=1]
 [ext_resource path="res://main_scene.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://fonts/Koulen-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://textures/rainbow_splash.png" type="Texture" id=13]
 [ext_resource path="res://audio/sadtrombone.swf.mp3" type="AudioStream" id=14]
+[ext_resource path="res://audio/guitar-electro-sport-trailer-115571.mp3" type="AudioStream" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 29
@@ -112,7 +113,12 @@ text = "New Game"
 [node name="lose_sound" type="AudioStreamPlayer" parent="lose_screen"]
 stream = ExtResource( 14 )
 
+[node name="background" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -16.0
+
 [connection signal="change_ui_score" from="player" to="CanvasLayer" method="_on_player_change_ui_score"]
+[connection signal="visibility_changed" from="lose_screen" to="." method="_on_lose_screen_visibility_changed"]
 [connection signal="gui_input" from="lose_screen/quit" to="lose_screen" method="_on_quit_gui_input"]
 [connection signal="gui_input" from="lose_screen/new_game" to="lose_screen" method="_on_new_game_gui_input"]
 

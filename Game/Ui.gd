@@ -23,6 +23,6 @@ func _on_player_change_ui_score(new_total) -> void:
 func _process(delta):
 	win_score()
 func win_score():
-	if $Score_Value.text == "600000":
+	if $Score_Value.text == "60000":
 		emit_signal("win")
 		

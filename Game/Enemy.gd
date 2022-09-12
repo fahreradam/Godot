@@ -41,14 +41,14 @@ func current_health():
 		queue_free()
 
 func hunt(pos):
-	$enemy_mesh.set("material/0", red_eye)
+	$enemy_mesh.set("material/1", red_eye)
 	direction = (pos-self.global_transform.origin).normalized()
 	self.look_at(pos, Vector3.UP)
 	move_and_slide(direction*speed, Vector3.UP)
 	
 
 func wander(delta):
-	$enemy_mesh.set("material/0", blue_eye)
+	$enemy_mesh.set("material/1", blue_eye)
 	if time <= 0:
 		end = Vector3(rand_range(-43, 43), rand_range(0, 1), rand_range(-43,43))
 		direction = (end - global_transform.origin).normalized()

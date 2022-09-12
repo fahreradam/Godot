@@ -1,5 +1,5 @@
 extends CanvasLayer
-
+var time = 3.42
 
 # Called when the node enters the scene tree for the first time.
 
@@ -8,7 +8,11 @@ func _process(delta):
 	if visible == true:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().paused = true
-		
+
+	if time <= 0:
+		$victory.stop()
+	if $victory.playing == true:
+		time-=delta	
 func _on_quit_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		get_tree().quit()
