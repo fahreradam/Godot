@@ -27,7 +27,7 @@ func _on_new_game_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		get_tree().paused = false
 		self.visible = false
-		get_tree().change_scene("res://main_scene.tscn")
+		get_tree().change_scene("res://Level_one.tscn")
 
 
 		

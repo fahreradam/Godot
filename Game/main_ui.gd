@@ -16,5 +16,6 @@ func _ready():
 #	pass
 
 
-func change_ui_score(new_total):
-	$score_value.text = str(new_total)
+func _on_player_change_ui_score(new_total) -> void:
+	$Score_Value.text = str(new_total)
+

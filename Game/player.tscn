@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://health_bar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/kenney_digitalaudio/Audio/highDown.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape" id=4]
 
@@ -30,5 +31,8 @@ transform = Transform( 1.04072e-07, 0.79363, -2.817, 3.69405e-07, 2.817, 0.79363
 
 [node name="health_bar" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.11064, -2.922, -1.20825, 0 )
+
+[node name="gun_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
 [editable path="health_bar"]

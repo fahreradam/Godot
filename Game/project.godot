@@ -62,6 +62,7 @@ pause={
 3d_physics/layer_3="Enemy"
 3d_physics/layer_4="Bullet"
 3d_physics/layer_5="Ground"
+3d_physics/layer_6="Portal"
 
 [physics]
 

@@ -17,3 +17,6 @@ func set_percentage(value):
 	if value > 100:
 		value = 100
 	$Viewport/TextureProgress.value = value
+	
+func get_percentage():
+	return $Viewport/TextureProgress.value

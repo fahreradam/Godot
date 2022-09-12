@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Kirk Osamayo - Arctic Winter.mp3-742857c5824c3ce87ae35f4e20309cf0.mp3str"
+
+[deps]
+
+source_file="res://audio/Kirk Osamayo - Arctic Winter.mp3"
+dest_files=[ "res://.import/Kirk Osamayo - Arctic Winter.mp3-742857c5824c3ce87ae35f4e20309cf0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

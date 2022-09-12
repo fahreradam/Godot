@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Enemy.gd" type="Script" id=1]
 [ext_resource path="res://health_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://obj_exports/eyeball.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://blue_material.tres" type="Material" id=4]
 
 [sub_resource type="SphereShape" id=4]
+
+[sub_resource type="ParticlesMaterial" id=5]
+
+[sub_resource type="SphereMesh" id=6]
 
 [node name="Enemy" type="KinematicBody" groups=["Enemys"]]
 transform = Transform( 0.362901, -0.000494891, 0.000325304, 0.000437909, 0.358433, 0.0567703, -0.000398717, -0.0567698, 0.358433, 0, 0.363, 0 )
@@ -17,9 +22,19 @@ speed = 2
 transform = Transform( 1, 1.17917e-10, -4.66545e-18, -1.17917e-10, 1, -1.34163e-08, 3.08344e-18, 1.34163e-08, 1, 0, 0, 0 )
 shape = SubResource( 4 )
 
-[node name="MeshInstance" type="MeshInstance" parent="."]
+[node name="enemy_mesh" type="MeshInstance" parent="."]
 transform = Transform( -1, 1.16415e-10, -8.74279e-08, 2.91038e-11, 1, 0, 8.74861e-08, -5.96046e-08, -1, 0, 0, 0 )
 mesh = ExtResource( 3 )
+material/0 = ExtResource( 4 )
 
 [node name="health_bar" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, 2.32831e-10, -8.74279e-08, 3.34694e-10, 1, 4.47035e-08, 8.73115e-08, -5.96046e-08, -1, 0.00438155, 1.90897, 0.24957 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( -0.325892, -2.84999e-08, 0, 2.90311e-08, -0.325892, 0, -2.91038e-11, 0, 0.325892, 0.000411702, 0.296232, -0.00862095 )
+amount = 26
+lifetime = 1.28
+explosiveness = 0.27
+randomness = 0.35
+process_material = SubResource( 5 )
+draw_pass_1 = SubResource( 6 )

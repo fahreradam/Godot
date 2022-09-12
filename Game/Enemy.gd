@@ -6,6 +6,8 @@ var health = 100
 var time = 0
 var end = Vector3(0,0,0)
 
+var red_eye = preload("res://red_material.tres")
+var blue_eye = preload("res://blue_material.tres")
 
 
 #onready var player = get_tree().get_root().get_node("player")
@@ -24,9 +26,9 @@ func _process(delta):
 	var player_pos = player.global_transform.origin
 
 
-	if (Vector2(player_pos.x, player_pos.z) - Vector2(self.global_transform.origin.x, self.global_transform.origin.z)).length() <= 1:
-#		hunt(player_pos)
-		pass
+	if (Vector2(player_pos.x, player_pos.z) - Vector2(self.global_transform.origin.x, self.global_transform.origin.z)).length() <= 20:
+		hunt(player_pos)
+		
 	else:
 		wander(delta)
 		
@@ -39,17 +41,19 @@ func current_health():
 		queue_free()
 
 func hunt(pos):
+	$enemy_mesh.set("material/0", red_eye)
 	direction = (pos-self.global_transform.origin).normalized()
 	self.look_at(pos, Vector3.UP)
 	move_and_slide(direction*speed, Vector3.UP)
+	
 
 func wander(delta):
-
+	$enemy_mesh.set("material/0", blue_eye)
 	if time <= 0:
-		end = Vector3(rand_range(-49, 49), rand_range(0, 1), rand_range(-49,49))
+		end = Vector3(rand_range(-43, 43), rand_range(0, 1), rand_range(-43,43))
 		direction = (end - self.transform.origin).normalized()
 		print(end)
-		time = 3 + time
+		time = 5 + time
 		self.look_at(end, Vector3.UP)
 
 	else:
@@ -67,8 +71,4 @@ func damage(delta):
 		var collision = get_slide_collision(i)
 		if collision.collider.name == "player":
 			player.health -= 10*delta
-	
-#func _on_Timer_timeout():
-#	print("changing eyeball color")
-#	set("materal/0", red_material)
 
