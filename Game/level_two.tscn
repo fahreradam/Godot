@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obstacle.tscn" type="PackedScene" id=2]
@@ -7,6 +7,13 @@
 [ext_resource path="res://level_two.gd" type="Script" id=5]
 [ext_resource path="res://Ui.tscn" type="PackedScene" id=6]
 [ext_resource path="res://pause_level2.tscn" type="PackedScene" id=7]
+[ext_resource path="res://textures/rainbow_splash.png" type="Texture" id=8]
+[ext_resource path="res://Ending.gd" type="Script" id=9]
+[ext_resource path="res://fonts/Koulen-Regular.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 29
+font_data = ExtResource( 10 )
 
 [node name="wolrd_root" type="Spatial"]
 script = ExtResource( 5 )
@@ -15,7 +22,7 @@ script = ExtResource( 5 )
 transform = Transform( 43, 0, 0, 0, 0.112, 0, 0, 0, 43, 0, 0.604566, 0 )
 
 [node name="player" parent="." instance=ExtResource( 3 )]
-transform = Transform( -1, 0, -1.50996e-07, 0, 1, 0, 1.50996e-07, 0, -1, 31.8058, 2.37016, 0 )
+transform = Transform( 0.41247, 0, 0, 0, 0.41247, 0, 0, 0, 0.41247, 0, 0.611658, 0 )
 
 [node name="walls" type="Spatial" parent="."]
 
@@ -38,19 +45,82 @@ pause_mode = 2
 visible = false
 
 [node name="Spawners" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11999, 2.9846, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1 )
 
 [node name="Spawner" parent="Spawners" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 0.77196, 0, -1, 0, -4.37114e-08, -27.3077, 0, 0 )
+transform = Transform( -0.810757, 0, -0.585382, 0, 0.357141, 0, 0.585382, 0, -0.810757, -38.7715, 1.73096, -35.0003 )
 
 [node name="Spawner2" parent="Spawners" instance=ExtResource( 4 )]
-transform = Transform( 0.620833, 0, 0.783943, 0, 0.77196, 0, -0.783943, 0, 0.620833, -35.2515, 0, -30.7565 )
+transform = Transform( 0.037167, 0, -0.999309, 0, 0.357141, 0, 0.999309, 0, 0.037167, -38.7715, 1.73096, -0.713284 )
 
 [node name="Spawner3" parent="Spawners" instance=ExtResource( 4 )]
-transform = Transform( -0.586599, 0, 0.809878, 0, 0.77196, 0, -0.809878, 0, -0.586599, -35.2515, 0, 34.1942 )
+transform = Transform( 0.72849, 0, -0.685055, 0, 0.357141, 0, 0.685055, 0, 0.72849, -38.7715, 1.73096, 37.9033 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.76428, 0 )
 shadow_enabled = true
 
+[node name="win_screen" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="win_screen"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+
+[node name="Win" type="RichTextLabel" parent="win_screen"]
+margin_left = 459.0
+margin_top = 237.0
+margin_right = 575.0
+margin_bottom = 295.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "You win"
+
+[node name="quit" type="RichTextLabel" parent="win_screen"]
+margin_left = 470.0
+margin_top = 397.0
+margin_right = 546.0
+margin_bottom = 453.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Quit"
+
+[node name="lose_screen" type="CanvasLayer" parent="."]
+script = ExtResource( 9 )
+
+[node name="TextureRect" type="TextureRect" parent="lose_screen"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 8 )
+
+[node name="lose" type="RichTextLabel" parent="lose_screen"]
+margin_left = 444.0
+margin_top = 233.0
+margin_right = 560.0
+margin_bottom = 291.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "You Lose"
+
+[node name="quit" type="RichTextLabel" parent="lose_screen"]
+margin_left = 475.0
+margin_top = 397.0
+margin_right = 551.0
+margin_bottom = 453.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "Quit"
+
+[node name="new_game" type="RichTextLabel" parent="lose_screen"]
+margin_left = 447.0
+margin_top = 349.0
+margin_right = 563.0
+margin_bottom = 405.0
+custom_fonts/normal_font = SubResource( 1 )
+text = "New Game"
+
 [connection signal="change_ui_score" from="player" to="hud" method="_on_player_change_ui_score"]
+[connection signal="gui_input" from="win_screen/quit" to="win_screen" method="_on_quit_gui_input"]
+[connection signal="gui_input" from="lose_screen/quit" to="lose_screen" method="_on_quit_gui_input"]
+[connection signal="gui_input" from="lose_screen/new_game" to="lose_screen" method="_on_new_game_gui_input"]
+[connection signal="gui_input" from="lose_screen/new_game" to="lose_screen" method="_on_quit_gui_input"]
+
+[editable path="pause"]
