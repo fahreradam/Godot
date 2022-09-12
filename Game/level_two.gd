@@ -1,5 +1,6 @@
 extends Spatial
 
+signal paused()
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -10,8 +11,8 @@ extends Spatial
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	pause_screen()
+func pause_screen():
 	if Input.is_action_just_pressed("pause"):
-		get_tree().paused = true
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-
-
+		emit_signal("paused")

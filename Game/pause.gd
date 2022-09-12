@@ -4,8 +4,8 @@ extends CanvasLayer
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if get_tree().paused == true:
-		self.visible = true
+	if visible == true:
+		get_tree().paused = true
 
 func _on_continue_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
@@ -22,3 +22,8 @@ func _on_new_game_gui_input(event):
 func _on_exit_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		get_tree().quit()
+
+
+func _on_wolrd_root_paused():
+	visible = true
+	

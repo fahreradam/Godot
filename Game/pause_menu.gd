@@ -29,10 +29,6 @@ func _on_new_game_gui_input(event):
 		self.visible = false
 		get_tree().change_scene("res://Level_one.tscn")
 
-
-		
-
-
 func _on_exit_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:
 		get_tree().quit()

@@ -1,14 +1,12 @@
 extends CanvasLayer
 
-var time = 0
 # Called when the node enters the scene tree for the first time.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if get_tree().get_nodes_in_group("Player")[0].health <= 0:
-		get_tree().paused = true
 		visible = true
-	time -= delta
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func _on_quit_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT:

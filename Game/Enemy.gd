@@ -1,7 +1,7 @@
 extends KinematicBody
 
 var direction = Vector3(0,0,0)
-export var speed = 5
+var speed = 5
 var health = 100
 var time = 0
 var end = Vector3(0,0,0)
@@ -16,8 +16,8 @@ onready var player = get_tree().get_nodes_in_group("Player")[0]
 
 
 # Called when the node enters the scene tree for the first time.
-
-	
+func _ready():
+	speed = speed
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -51,7 +51,7 @@ func wander(delta):
 	$enemy_mesh.set("material/0", blue_eye)
 	if time <= 0:
 		end = Vector3(rand_range(-43, 43), rand_range(0, 1), rand_range(-43,43))
-		direction = (end - self.transform.origin).normalized()
+		direction = (end - global_transform.origin).normalized()
 		time = 5 + time
 		self.look_at(end, Vector3.UP)
 

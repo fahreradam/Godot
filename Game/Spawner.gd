@@ -21,6 +21,8 @@ func _ready():
 func _process(delta):
 	spawntimer -= delta
 	var temp_enemy = num_enemy
+	if spawn_num >= max_enemy:
+		$Particles.one_shot = true
 	if spawntimer <= 0.0:
 		while num_enemy > 0 and spawn_num < max_enemy:
 			var enemy = enemy_basic.instance()

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sadtrombone.swf.mp3-65ecaed647be23607dbc89093505ea98.mp3str"
+
+[deps]
+
+source_file="res://audio/sadtrombone.swf.mp3"
+dest_files=[ "res://.import/sadtrombone.swf.mp3-65ecaed647be23607dbc89093505ea98.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

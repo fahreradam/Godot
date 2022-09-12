@@ -12,13 +12,20 @@ shader_param/time_scaler = 0.1
 shader_param/y_scaler = 0.1
 shader_param/gradient_img = ExtResource( 2 )
 
-[sub_resource type="ParticlesMaterial" id=5]
-
 [sub_resource type="ParticlesMaterial" id=6]
-next_pass = SubResource( 5 )
+emission_shape = 2
+emission_box_extents = Vector3( 5, 0, 5 )
+gravity = Vector3( 0, 9.8, 0 )
 angular_velocity = 1.0
+damping_random = 0.48
+
+[sub_resource type="SpatialMaterial" id=8]
+albedo_color = Color( 0.823529, 0.0117647, 0.0117647, 1 )
 
 [sub_resource type="SphereMesh" id=7]
+material = SubResource( 8 )
+radius = 0.104
+height = 0.36
 
 [node name="Spawner" type="Spatial"]
 transform = Transform( 0.35689, 0, 0, 0, 0.0984594, 0, 0, 0, 0.35689, 0, 0, 0 )
@@ -29,8 +36,10 @@ transform = Transform( 0.824215, 0, 0, 0, 4.82343, 0, 0, 0, 0.185273, 0, 0, 0 )
 mesh = SubResource( 4 )
 material/0 = SubResource( 3 )
 
-[node name="CPUParticles" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
-amount = 16
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.62187, 0 )
+amount = 64
+lifetime = 0.66
+visibility_aabb = AABB( -4, -0.285372, -4, 8, 0.570744, 8 )
 process_material = SubResource( 6 )
 draw_pass_1 = SubResource( 7 )

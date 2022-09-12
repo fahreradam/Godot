@@ -54,20 +54,6 @@ func my_bullet_is_dead(new_points):
 	# Change the UI
 	emit_signal("change_ui_score", points)
 	
-#func do_color_change(delta):
-#	time_to_color_change -= delta
-#	if time_to_color_change <= 0:
-#		# Reset the timer
-#		time_to_color_change += color_change_delay
-#
-#		# Change the color -- the interesting part
-#		# here is accessing our mesh_instance node
-#		var mesh_node = $player_mesh
-#
-#		# Change the color of the material
-#		mesh_node.get_active_material(0).albedo_color = \
-#			Color(randf(), randf(), randf())
-	
 func do_movement():
 	var velocity = Vector3.ZERO
 	var direction_map = {"move_left": -transform.basis.z,

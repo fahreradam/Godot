@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal win()
 
 # Declare member variables here. Examples:
 # var a: int = 2
@@ -18,3 +19,10 @@ func _ready() -> void:
 
 func _on_player_change_ui_score(new_total) -> void:
 	$Score_Value.text = str(new_total)
+
+func _process(delta):
+	win_score()
+func win_score():
+	if $Score_Value.text == "600000":
+		emit_signal("win")
+		

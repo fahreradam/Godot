@@ -1,30 +1,51 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://health_bar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://audio/kenney_digitalaudio/Audio/highDown.ogg" type="AudioStream" id=3]
+[ext_resource path="res://basicCharacterUV.tga" type="Texture" id=4]
+[ext_resource path="res://basicCharacter.obj" type="ArrayMesh" id=5]
 
-[sub_resource type="CapsuleShape" id=4]
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 2.14353, 3.05402, 1.47488 )
 
-[sub_resource type="CapsuleMesh" id=5]
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
 
 [sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0, 0.0313726, 0.843137, 1 )
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=7]
+albedo_texture = ExtResource( 4 )
 
 [node name="player" type="KinematicBody" groups=["Player"]]
-transform = Transform( 0.341686, 0, 0, 0, 0.341686, 0, 0, 0, 0.341686, 0, 0.533168, 0 )
+transform = Transform( 0.341686, 0, 0, 0, 0.341686, 0, 0, 0, 0.341686, 0, 0.49358, 0 )
 collision_layer = 2
 collision_mask = 5
 script = ExtResource( 1 )
 
 [node name="player_collider" type="CollisionShape" parent="."]
-transform = Transform( 0.918572, 0, 0, 0, -4.64958e-08, -1.0637, 0, 0.918572, -4.01521e-08, 0, 0, 0 )
-shape = SubResource( 4 )
+transform = Transform( -1.60102e-08, 0.114743, -4.35417e-08, 0, -5.01556e-09, -0.996118, -0.366271, -5.01556e-09, 1.90327e-15, -0.0142846, -0.0256544, -0.013933 )
+shape = SubResource( 1 )
 
 [node name="player_mesh" type="MeshInstance" parent="."]
-transform = Transform( 0.863564, 0, 0, 0, -4.37114e-08, -1, 0, 0.863564, -3.77476e-08, 0, 0, 0 )
-mesh = SubResource( 5 )
-material/0 = SubResource( 3 )
+transform = Transform( -7.44914e-09, 0, 0.197341, 0, 0.170417, 0, -0.170417, 0, -8.62605e-09, 0.0142846, -1.38369, -0.0146452 )
+mesh = ExtResource( 5 )
+material/0 = SubResource( 2 )
+material/1 = SubResource( 3 )
+material/2 = SubResource( 4 )
+material/3 = SubResource( 5 )
+material/4 = SubResource( 6 )
+material/5 = SubResource( 7 )
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( 1.04072e-07, 0.79363, -2.817, 3.69405e-07, 2.817, 0.79363, 2.92666, -3.83785e-07, 8.31808e-14, -7.58266, 3.68625, 0 )
