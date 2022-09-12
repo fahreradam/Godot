@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://floor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://obstacle.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://textures/rainbow_splash.png" type="Texture" id=8]
 [ext_resource path="res://Ending.gd" type="Script" id=9]
 [ext_resource path="res://fonts/Koulen-Regular.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://wining.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 29
@@ -61,8 +62,9 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 5.76
 shadow_enabled = true
 
 [node name="win_screen" type="CanvasLayer" parent="."]
+pause_mode = 2
 visible = false
-script = ExtResource( 9 )
+script = ExtResource( 11 )
 
 [node name="TextureRect" type="TextureRect" parent="win_screen"]
 margin_right = 40.0
@@ -86,6 +88,8 @@ custom_fonts/normal_font = SubResource( 1 )
 text = "Quit"
 
 [node name="lose_screen" type="CanvasLayer" parent="."]
+pause_mode = 2
+visible = false
 script = ExtResource( 9 )
 
 [node name="TextureRect" type="TextureRect" parent="lose_screen"]
