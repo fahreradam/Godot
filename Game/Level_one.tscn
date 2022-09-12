@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://portal.gd" type="Script" id=1]
 [ext_resource path="res://main_scene.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Ending.gd" type="Script" id=11]
 [ext_resource path="res://fonts/Koulen-Regular.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://textures/rainbow_splash.png" type="Texture" id=13]
+[ext_resource path="res://audio/sadtrombone.swf.mp3" type="AudioStream" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 29
@@ -107,6 +108,9 @@ margin_right = 563.0
 margin_bottom = 405.0
 custom_fonts/normal_font = SubResource( 1 )
 text = "New Game"
+
+[node name="lose_sound" type="AudioStreamPlayer" parent="lose_screen"]
+stream = ExtResource( 14 )
 
 [connection signal="change_ui_score" from="player" to="CanvasLayer" method="_on_player_change_ui_score"]
 [connection signal="gui_input" from="lose_screen/quit" to="lose_screen" method="_on_quit_gui_input"]
